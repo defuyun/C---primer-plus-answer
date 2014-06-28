@@ -3,7 +3,6 @@
 #include<array>
 #include<vector>
 #include<cstring>
-#pragma warning(disable:4996)
 
 const int size = 30;
 //1.
