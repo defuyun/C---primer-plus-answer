@@ -1,0 +1,11 @@
+cin does not read blank characters.
+cin starts reading from the first non blank character and ends when it see another blank character
+it does not take the blank character from the input stream but leaves it there.
+this is fine when your using cin only because the next cin will simply leave that blank character, but keep in
+mind that the blank is still in the stream.
+
+cin.getline reads blank characters and it stops when it sees \n or the char limit is exceeded (Char limit is N-1 where N is
+the length passed in). cin.getline takes out the \n character from the stream but does not append it to the string. 
+
+getline is the same as cin.getline except it deals with string object rather then char string. it has the same function as 
+cin.getline() but does not need to indicate char length.
