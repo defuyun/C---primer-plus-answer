@@ -1,0 +1,6 @@
+a character defineing library <ctype> can be used to determine the chatacter.
+cin is an ostream and cout is an istream.
+to modify files, we could proejfice our own ofstream and istream;
+
+my guess. cin is a ostream with the file pointer stdout, and cout is the istream with file pointer stdin.
+therefore we can set our own file pointers using istream and ostream.
