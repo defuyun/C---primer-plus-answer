@@ -3,3 +3,12 @@
 内存中存储的数据的类型达成一致。函数原型将返回值类型告知
 调用程序，而函数定义命令被调用函数应返回什么类型
 
+
+//you cannot change age via pt
+int age = 39;
+const int *pt = &age;
+
+
+//stck can only point to trouble
+const double *const stck = &trouble
+
