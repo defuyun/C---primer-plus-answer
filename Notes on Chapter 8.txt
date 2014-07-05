@@ -27,5 +27,30 @@ int &a(int &x,int &y){
 //如果省略参数n,则它的值将为1;否则,传递的值将覆盖1
 char *left(const char *str,int n = 1)
 
+编译器在选择原型时,非模版版本优先于显示具体化和模版版本
+prototype > explicit specialization > template
 
+//non template function prototype
+void swap(int &a, int &b);
 
+//template
+template<typename T>
+void swap(T &a, T &b);
+
+//explicit specialization
+template<>
+void swap<int>(int &,int &);
+
+代码中包含函数模版并不会生成函数定义，只是一个用于生成函数定义的方案
+编译器使用模版为特定类型生成函数定义时，得到的模版实例(instantiation)
+
+函数调用swap时 编译器生成swap的实例(instantiation),这个实例使用int类型
+,模版并非函数定义,但使用int的模版实例是函数定义。 这种实例化的方式被称为隐式实例化
+(implicit instantiation),因为编译器之所以直到需要进行定义,是由于程序调用swap
+函数时提供了int参数
+
+显示实例化(explicit instantiation)意味着直接命令编译器创建特定的实例,如：
+             swap<int>(int &,int &);
+             swap(int &,int &);
+这些声明的意思是： 不要使用swap模版生成函数定义,而应使用专门为int类型显示地定义的函数
+包含<>的显示具体化,实例化没有
