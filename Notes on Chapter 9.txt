@@ -6,3 +6,17 @@ extern process_status;
 
 在file1里 process_status 分配内存
 在file2里 不分配内存
+
+
+regular new and placement new
+一般的new
+int *p = new int;
+
+placement new
+char buff[20];
+int *p = new(buff)int;
+
+一般的new在heap中取出存储空间
+placement new在buff里取出存储空间
+
+也就是说new的内存空间在heap里 而buff的在local里
