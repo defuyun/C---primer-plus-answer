@@ -1,0 +1,8 @@
+file1.cpp
+int process_status = 0;
+
+file2.cpp
+extern process_status;
+
+在file1里 process_status 分配内存
+在file2里 不分配内存
