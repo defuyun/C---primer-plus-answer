@@ -20,3 +20,6 @@ int *p = new(buff)int;
 placement new在buff里取出存储空间
 
 也就是说new的内存空间在heap里 而buff的在local里
+
+不能用delete删除placement new分配的空间, delete只能将
+内存还给内存池(heap) 原来不属于heap的空间无法delete.
