@@ -46,11 +46,15 @@ void bak(){
         double cash;
         std::cin >> cash;
         newaccount.diposit(cash);
+        break;
     case 2:
         std::cout << "How much would you like to withdraw: ";
         double cash;
         std::cin >> cash;
         newaccount.withdraw(cash);
+        break;
+    default:
+        std::cout << "Your entrance is invalid\n";    
     }
 
     newaccount.display();
