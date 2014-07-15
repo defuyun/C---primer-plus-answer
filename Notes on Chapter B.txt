@@ -1,0 +1,33 @@
+Friend functions
+using friend functions to overload operators;
+for binary operators in a class e.g.
+class time{
+   time operator+(int a);
+}
+the binary operator takes in 2 parameters, the first one is 
+the class variable by default (this pointer is passed in)
+
+outside the class e.g.
+time operator+(int a, int b); X
+
+1.overloading a operator outside a class requires at least one
+  self defined variable e.g. a struct enum class etc;
+  
+2.a binary operator would require 2 parameter to be passed in
+
+
+
+overlaoding <<
+<< usually conbines with std::cout, cout is a ostream variable 
+defined in the ostream class. In order to use std::cout << to 
+display a self defined class the variable &ostream should be 
+passed as the first variable (the stuff on th left side of the
+operator) e.g.
+
+ostream &operator<<(ostream &os,time t);
+
+this returns a ostream so you countiniuoly use the << operator e.g.
+
+std::cout << time << int << etc;
+
+if you don't return ostream than you can't << after time.
