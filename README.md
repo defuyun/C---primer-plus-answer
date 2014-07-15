@@ -1,3 +1,5 @@
-C---primer-plus-answer
+C++ primer-plus-answer
 ======================
-Answer to C++ Primer Plus
+Answer to C++ Primer Plus<br>
+
+numbered in Hex
