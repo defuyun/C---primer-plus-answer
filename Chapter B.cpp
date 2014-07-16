@@ -301,3 +301,70 @@ namespace STONE{
 }
 
 //6.
+class stonewt{
+private:
+    enum{lbs_per_stn = 14};
+    int stone;
+    double pds_left;
+    double pounds;
+public:
+    stonewt(int stone,int pounds){
+        this->stone = stone;
+        this->pounds = pounds+stone*14;
+    }
+    bool operator<(const stonewt t)const{
+        return pounds < t.pounds ? true : false;
+    }
+    bool operator>(const stonewt t)const{
+        return pounds > t.pounds ? true : false;
+    }
+    bool operator==(const stonewt t)const{
+        return pounds == t.pounds ? true : false;
+    }
+    bool operator<=(const stonewt t)const{
+        return pounds <= t.pounds ? true : false;
+    }
+    bool operator>=(const stonewt t)const{
+        return pounds >= t.pounds ? true : false;
+    }
+    friend std::ostream &operator<<(std::ostream &os, const stonewt &a){
+        os << stone << " stone, " << pounds << ", pounds";
+        return os;
+    }
+}
+
+void usestone(){
+    stonewt stuff[6];
+    stuff[0] = stonewt(1,2);
+    stuff[1] = stonewt(4,5);
+    stuff[2] = stonewt(6,7);
+    int n = 3;
+    int stone, pound;
+    while(n < 6){
+        std::cout << "Please input stone: ";
+        std::cin >> stone;
+        std::cout << "Please input pounds: ";
+        std::cin >> pound;
+        stuff[n] = stonewt(stone,pound);
+        n++;
+    }
+    stonewt large,min;
+    stonewt elev(11,0);
+    large = min = stuff[0];
+    
+    n = 0;
+    int counter = 0;
+    while(n < 6){
+        if(large<stuff[n]){
+            large = stuff[n];
+        }
+        if(min . stuff[n]){
+            min = stuff[n];
+        }
+        if(stuff[n] > elev){
+            counter++;
+        }
+    }
+    std::cout << "largest stone is " << large << " smallest stone is " << min;
+    std::cout << "\nthere are " << counter << "greater than 11\n";
+}
