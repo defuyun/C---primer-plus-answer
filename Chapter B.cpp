@@ -88,6 +88,82 @@ namespace VECTOR{
     };
 }
 
+using std::sqrt;
+using std::sin;
+using std::cos;
+using std::atan;
+using std::atan2;
+using std::cout;
+
+namespace VECTOR{
+    const double rad_to_deg = 45.0 / atan(1.0);
+
+
+    vector::vector(){
+        x = y = 0;
+        m = RECT;
+    }
+
+    vector::vector(double n1, double n2, mode form){
+        m = form;
+        if (form == RECT){
+            x = n1;
+            y = n2;
+        }
+        else if (form = POL){
+            x = n1 * cos(n2);
+            y = n1 * sin(n2);
+        }
+        else {
+            cout << "Incorrect argument\n";
+            x = y = 0;
+            m = RECT;
+        }
+    }
+
+    void vector::reset(double n1, double n2, mode form){
+        *this = vector(n1, n2, form);
+    }
+
+    void vector::polar_mode(){
+        m = POL;
+    }
+
+    void vector::rect_mode(){
+        m = RECT;
+    }
+
+    vector vector::operator+(const vector &b)const{
+        return vector(x + b.x, y + b.y);
+    }
+    vector vector::operator-(const vector &b)const{
+        return vector(x - b.x, y - b.y);
+    }
+
+    vector vector::operator-()const{
+        return vector(-x ,-y);
+    }
+    vector vector::operator*(double n)const{
+        return vector(n*x, n*y);
+    }
+
+    vector operator*(double n, const vector &a){
+        return a*n;
+    }
+
+    std::ostream &operator<<(std::ostream &os, const vector &v){
+        if (v.m == vector::RECT){
+            os << "(x,y) = (" << v.x << ", " << v.y << ")";
+        }
+        else if (v.m == vector::POL){
+            os << "(m,a) = (" << v.magval() << ", " << v.angval() * rad_to_deg << ")";
+        }
+        else {
+            os << "vector object is invalid";
+        }
+        return os;
+    }
+}
 //3.
 void usevector(){
     using VECTOR::vector;
