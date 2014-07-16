@@ -366,3 +366,76 @@ void usestone(){
     std::cout << "largest stone is " << large << " smallest stone is " << min;
     std::cout << "\nthere are " << counter << "greater than 11\n";
 }
+
+
+//7.
+namespace Complex{
+    class complex{
+    private:
+        double real;
+        double imag;
+    public:
+        template<typename T,typename C>
+        complex(T x, C y){
+            real = (double)x;
+            imag = (double)y;
+        }
+
+        complex(){
+            real = 0;
+            imag = 0;
+        }
+        complex operator+(const complex &v)const{
+            return complex(real + v.real, imag + v.imag);
+        }
+        complex operator-(const complex &v)const{
+            return complex(real - v.real, imag - v.imag);
+        }
+        complex operator*(const complex &v)const{
+            return complex(real*v.real - imag*v.imag, real*v.imag + imag*v.real);
+        }
+        complex operator/(const complex &v)const{
+            complex a = ~v;
+            complex b = a*(*this);
+            double c = (a*v).real;
+            return complex(b.real / c, b.imag / c);
+        }
+        complex operator~()const{
+            return complex(real, -imag);
+        }
+        template<typename T>
+        complex operator*(T a)const{
+            return complex(real*a, imag*a);
+        }
+
+        friend complex operator*(int a, const complex t){
+            return t*a;
+        }
+
+        friend std::istream &operator>>(std::istream &os, complex &u){
+            os >> u.real;
+            os >> u.imag;
+            return os;
+        }
+
+        friend std::ostream &operator<<(std::ostream &os, const complex &u){
+            os << u.real << "+" << u.imag << "i";
+            return os;
+        }
+    };
+}
+
+int main(){
+    using namespace Complex;
+    complex u(10, 10);
+    complex v;
+    std::cout << "Enter a complex number (format: real imagine) :";
+    std::cin >> v;
+    std::cout << "u = " << u << " v = " << v << std::endl;
+    std::cout << "v+u = " <<  v + u << std::endl;
+    std::cout << "v-u = " << v - u << std::endl;
+    std::cout << "v*u = " << v * u << std::endl;
+    std::cout << "v/u = " << v / u << std::endl;
+    std::cout << "~u = " << ~u << std::endl;
+    system("pause");
+}
