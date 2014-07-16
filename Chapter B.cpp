@@ -1,7 +1,6 @@
 #include<iostream>
 #include<cstdlib>
 #include<ctime>
-#include"stuff.h"
 #include<fstream>
 
 //1.
@@ -154,16 +153,15 @@ namespace VECTOR{
     std::ostream &operator<<(std::ostream &os, const vector &v){
         if (v.m == vector::RECT){
             os << "(x,y) = (" << v.x << ", " << v.y << ")";
-        }
-        else if (v.m == vector::POL){
+        } else if (v.m == vector::POL){
             os << "(m,a) = (" << v.magval() << ", " << v.angval() * rad_to_deg << ")";
-        }
-        else {
+        } else {
             os << "vector object is invalid";
         }
         return os;
     }
 }
+
 //3.
 void usevector(){
     using VECTOR::vector;
@@ -358,7 +356,7 @@ void usestone(){
         if(large<stuff[n]){
             large = stuff[n];
         }
-        if(min . stuff[n]){
+        if(min > stuff[n]){
             min = stuff[n];
         }
         if(stuff[n] > elev){
