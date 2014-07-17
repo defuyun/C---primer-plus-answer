@@ -31,3 +31,36 @@ c++ automatically creates the following member functions:
 ~ a copy constructor
 ~ an assingment operator (=)
 ~ an address operator
+
+copy constructor:
+prototype:
+stringBad &stringBad(const stringBad &);
+
+//motto is a stringBad
+stringBad metoo = motto;
+stringBad also = StringBad(motto);
+
+depending on the implementation, these 2 may use a copy constructot to create metoo
+and also. a compluler uses a copy constructor whenever a program generates copies
+of an object. in particular, its used when a function passes an obkect by value 
+or when a function returns an object.
+
+delete []p;
+can only delete pointers initialized by new[] or NULL pointer
+it cannot delete pointers initialized by new;
+
+use delete p for pointer initialized by new;
+
+static member funtcion:
+~ static member function doens;t have to be invoked by an object;
+~ it does not get a this pointer
+~ it could be invoked liked | int count = string::howmany() // string is the class, howmany is a stativ member funciton
+
+conversion:
+a constructor with a single argument serves as a conversion function
+string name;
+char temp[40];
+cin.getline(temp,40);
+name = temp;
+the line name = temp; calls the constructor string(const char *)
+
