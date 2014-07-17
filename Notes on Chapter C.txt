@@ -1,0 +1,33 @@
+class stringBad{
+  priivate:
+    char *str;
+    int len;
+    static int num_strings;
+}
+
+a static string inside a class has the following property;
+the program only creates on copy of a static class variable
+regardless of the number of objects created.
+
+the static member is shared by all objects;
+
+you cannot initialize the num_strings in the class
+definition so
+
+static int num_strings = 0 X
+
+because declaration doesn't create memory and assigning a 
+number needs to create memory to store the number;
+
+stringBad b = "xxxxx";
+stringBad a = b;
+
+the 2nd line creates uses copy constructor which the compliler automatically
+creates. however this still calls the regular destructor
+
+c++ automatically creates the following member functions:
+~ a default constructor
+~ a default destructor
+~ a copy constructor
+~ an assingment operator (=)
+~ an address operator
