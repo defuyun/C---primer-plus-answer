@@ -22,7 +22,7 @@ number needs to create memory to store the number;
 stringBad b = "xxxxx";
 stringBad a = b;
 
-the 2nd line creates uses copy constructor which the compliler automatically
+the 2nd line uses copy constructor which the compliler automatically
 creates. however this still calls the regular destructor
 
 c++ automatically creates the following member functions:
@@ -76,4 +76,19 @@ returning an const reference is more efficient than returning a copy:
 to return a copy, the copt constructor is called which takes space.
 because v1 and v2 are both consts therefore the return value must also
 be const
+
+if you want to inializ a const data memeber, you have to do so when the obkect is 
+created before execution reaches the body of the constructo, C++ provides a speical
+syntax for doing just that called a member initalizer list
+
+Queue::Queue(int qs):qzise(qs)
+
+qsize is a const member
+by using :qsize(qs) the value of qs is assigned to qsize
+
+it doesnt have to be const values
+e.g.
+Queue::Queue(int qs):qzise(qs),front(nullptr),rear(nullptr) etc.
+
+
 
