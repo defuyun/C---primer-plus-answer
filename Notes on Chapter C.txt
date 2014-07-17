@@ -64,3 +64,5 @@ cin.getline(temp,40);
 name = temp;
 the line name = temp; calls the constructor string(const char *)
 
+old versions of cin.get does not set falsebit upon reading an empty line.
+socin.get(char *,int) if reads a '\0' string, does not set failbit.
