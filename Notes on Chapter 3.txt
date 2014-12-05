@@ -9,3 +9,12 @@ the length passed in). cin.getline takes out the \n character from the stream bu
 
 getline is the same as cin.getline except it deals with string object rather then char string. it has the same function as 
 cin.getline() but does not need to indicate char length.
+
+
+using the wchar_t charater:
+
+wchar_t is a 2 byte character type used to display unicodes etc. the ASCII character type char is only 1 byte therefore 8bit 
+with a max storage of 255 which is not large enough to display all the characters in the world. That's why if we want to 
+display characters other than english we need to the 2byte wchar_t;
+cin and cout considers stream as bytes of char therefore they are incapable of displaying 2byte chars such as wchar_t. To
+display wchar_t there is the wcin, wcout class.
