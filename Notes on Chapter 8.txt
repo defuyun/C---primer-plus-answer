@@ -54,3 +54,16 @@ void swap<int>(int &,int &);
              swap(int &,int &);
 这些声明的意思是： 不要使用swap模版生成函数定义,而应使用专门为int类型显示地定义的函数
 包含<>的显示具体化,实例化没有
+
+the decltype() function can be used to determin what type a variable should be(when using template)
+
+e.g.
+template <typename t1,typename t2>
+?type? add(t1 a,t2 b)
+
+for this function we can not be certain what the return type would be(int + double = double, int + short = int etc)
+so we need to somehow determine the return value.
+
+so we can use
+template <typename t1,typename t2>
+auto add(t1 a,t2 b)->decltype(a+b);
