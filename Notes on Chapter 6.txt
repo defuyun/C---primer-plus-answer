@@ -4,3 +4,9 @@ to modify files, we could proejfice our own ofstream and istream;
 
 my guess. cin is a ostream with the file pointer stdout, and cout is the istream with file pointer stdin.
 therefore we can set our own file pointers using istream and ostream.
+
+when cin read in input, it reads in as char then converts to the appropiate underlying type.
+samegoes for cout, it converts the data to char type and displays on the screen
+
+to use I/O you must include <fstream> header and create a ofstream object.
+in the fstream header there is a defined class called ofstream which is in the namespace std
