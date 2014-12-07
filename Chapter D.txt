@@ -1,0 +1,40 @@
+if we have a class 
+
+class demo{
+  string a;
+  demo(const string & s);
+}
+
+demo::demo(const string & s):a(s){}
+
+is a better option compared to
+
+demo::demo(const string & s){
+  a = s;
+}
+
+the 2nd option calls a default string constructor for string a and then calls the assigment operator
+the 1st option only calls the copy constructor
+
+consider
+
+class demo{
+  string a;
+  demo(const string & s);
+}
+
+class demo2:public demo{
+  string b;
+  demo2(string & s):demo(s)
+}
+
+int main(){
+  demo2 a1("Hello");
+  demo a2(a1);
+}
+
+there is no constructor of type demo(demo2) but there is a copy constructor demo(const demo &)
+so if you try to initialize a base-class with param of derive-class you invoke the copy constructor
+
+early binding = bind at compile time
+dynamic binding = binding at runtime
