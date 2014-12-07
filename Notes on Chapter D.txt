@@ -38,3 +38,8 @@ so if you try to initialize a base-class with param of derive-class you invoke t
 
 early binding = bind at compile time
 dynamic binding = binding at runtime
+
+method for dynamic binding 
+the compiler adds a hidden member to the object which points to an array of function address
+such an array is termed virtual function table(vtbl)
+
