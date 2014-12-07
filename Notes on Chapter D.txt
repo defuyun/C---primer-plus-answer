@@ -43,3 +43,6 @@ method for dynamic binding
 the compiler adds a hidden member to the object which points to an array of function address
 such an array is termed virtual function table(vtbl)
 
+
+post on memory allocation of const 
+http://stackoverflow.com/questions/6381088/const-vs-static-const
