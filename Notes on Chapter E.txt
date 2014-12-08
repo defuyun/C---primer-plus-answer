@@ -1,0 +1,46 @@
+list assignment assigns value based on how they re defined in the class member
+e.g.
+
+class A{
+  int b;
+  short c;
+  
+  A(int f,short d):c(d),b(f){}
+}
+
+b is assigned first even though it's declared first in the constructor
+
+Expression arguments can onlly be int, enum,reference,pointer
+Array<double,12> is valid but Array<double,12.5> is not
+
+template<typename T,int n>  the int n is a expression arg
+
+using expression arg you can write
+template<typename T,int n>
+class A{
+  T a[n];
+}
+
+expression args uses memory stack maintaned in auto
+
+you can use default values for template
+template<class t1,class t2 = int>
+
+embedded template class
+template<template <typename T> typename Thing>
+class Crab{
+  Thing<int> a;
+}
+
+c++ alis
+
+you can use
+template<class T>
+using arrtype = std::array<T,12>
+
+and then 
+arrtype<double>
+arrtype<int>
+arrtype<char> 
+
+these are all automatically converted to std::array<type,12>
