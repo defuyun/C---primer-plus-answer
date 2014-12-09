@@ -51,3 +51,37 @@ try{
 }
 
 ... catches everything
+dynamic cast can be used to convert objects from base to derive class
+
+c++ has 3 components supporting RTTI:
+~ dynamic_cast operatpr generates a pointer to a derived type from a pointer of a base class
+~ typeid returns a value identfying the exact type
+~ type_info class hold info about a type
+
+the typeid returns a reference to a type_info object, the type_info overloads ==  and != so they can be used 
+to compare types.
+e.g.
+
+typeid(a tpye name) == typeid(*var)
+if failed to convert, var will be null and type_info throws bad_typeid exception
+
+typeid(* var).name() returns a string containing the name of a class
+
+const_cast can only alter the value if the target itself is not declared as const
+e.g.
+
+demo{
+  int a = 1;
+  const int b = 1;
+  fun(a);
+  fun(b);
+}
+
+fun(const int a){
+  int * b = const_cast<int *>(&a);
+  b++;
+}
+
+the const int b does not change
+
+static_cast only works for base-derive or derive-base;
