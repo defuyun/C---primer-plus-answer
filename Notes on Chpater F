@@ -1,0 +1,5 @@
+abort() sends message, sends fail to shell, does not flush stream
+exit() does not send message but flush stream
+
+throw works like return except that is backs up the code until it finds the keyword try
+
