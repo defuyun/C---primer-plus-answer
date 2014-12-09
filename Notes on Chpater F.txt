@@ -3,3 +3,51 @@ exit() does not send message but flush stream
 
 throw works like return except that is backs up the code until it finds the keyword try
 
+throw returns to the first function call with a try
+e.g.
+
+fun1{
+  try{
+    fun2();
+  }catch(const char *){
+  
+  }
+}
+
+fun2(){
+  fun3();
+}
+
+fun3(){
+  throw "string"
+}
+
+returns to fun1() deleting the memory ocupied by fun2() on it's way
+
+when throing an exception, the compiler always create a temporary copy of the object;
+e.g.
+
+fun1(){
+  try{  
+    fun3();
+  }catch(int & i){
+    cout << i;
+  }
+}
+
+fun3(){
+  int i;
+  throw i;
+}
+
+throw would create a copy of i therefore fun1() can use it by reference
+
+to catch any error use
+
+try{
+
+}catch(...){
+
+}
+
+... catches everything
