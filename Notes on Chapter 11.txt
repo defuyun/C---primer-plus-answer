@@ -1,0 +1,4 @@
+devices such as disk drives transfer information in blocks of 512 bytes or more, whereas programs often 
+process information 1 byte a time
+
+cout > streambuf > screen
